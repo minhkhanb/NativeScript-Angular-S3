@@ -13,7 +13,7 @@ import { screen } from 'platform';
 import { setTimeout } from 'timer';
 
 @Component({
-  selector: 'bottomBar',
+  selector: 'BottomBar',
   moduleId: module.id,
   templateUrl: './bottomBar.component.html',
   styleUrls: ['./bottomBar.component.css']
