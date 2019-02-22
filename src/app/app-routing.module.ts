@@ -16,6 +16,7 @@ const routes: Routes = [
     { path: 'balance', component: BalanceComponent },
     { path: 'calendar', component: CalendarComponent },
     { path: 'today', component: TodayComponent },
+    { path: 'ui', loadChildren: '~/app/ui/ui.module#UIModule' },
 ];
 
 @NgModule({
