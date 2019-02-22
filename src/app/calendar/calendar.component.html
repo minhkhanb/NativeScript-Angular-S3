@@ -1,0 +1,81 @@
+<GridLayout columns="*" rows="auto,auto,*,auto">
+  <!-- Summary -->
+  <StackLayout col="0" row="0" orientation="vertical">
+      <!-- Navigaton -->
+      <ios>
+          <GridLayout rows="auto" columns="75,*,75" class="action-bar p-20">
+              <Image src="~/images/iconToday.png" class="action-item p-5"
+                  row="0" col="0" (tap)="goToTodayPage()" stretch="aspectFit"
+                  width="24" horizontalAlignment="left" opacity="0.2"></Image>
+              <Image src="~/images/iconCalendar.png" class="action-item p-5"
+                  row="0" col="1" stretch="aspectFit"
+                  width="24" horizontalAlignment="center"></Image>
+              <Image src="~/images/iconBalance.png" class="action-item p-5"
+                  row="0" col="2" (tap)="goToBalancePage()" stretch="aspectFit"
+                  width="24" horizontalAlignment="right" opacity="0.2"></Image>
+          </GridLayout>
+      </ios>
+      <android>
+          <GridLayout rows="auto" columns="75,*,75" class="action-bar p-20">
+              <Image src="~/images/iconToday.png" class="action-item p-5"
+                  row="0" col="0" (tap)="goToTodayPage()" stretch="aspectFit"
+                  width="35" horizontalAlignment="left" opacity="0.2"></Image>
+              <Image src="~/images/iconCalendar.png" class="action-item p-5"
+                  row="0" col="1" stretch="aspectFit"
+                  width="35" horizontalAlignment="center"></Image>
+              <Image src="~/images/iconBalance.png" class="action-item p-5"
+                  row="0" col="2" (tap)="goToBalancePage()" stretch="aspectFit"
+                  width="35" horizontalAlignment="right" opacity="0.2"></Image>
+          </GridLayout>
+      </android>
+
+      <!-- /Navigation -->
+
+      <RadCalendar col="0" row="1" [monthViewStyle]='monthViewStyle()'
+          height="300">
+      </RadCalendar>
+  </StackLayout>
+  <!-- /Summary -->
+
+  <!-- Transactions -->
+  <StackLayout col="0" row="2" class="p-t-30" orientation="vertical"
+      backgroundColor="#2C3251">
+      <ListView #listView [items]="payments" backgroundColor="#2C3251"
+          separatorColor="transparent">
+          <ng-template let-item="item">
+              <GridLayout columns="30, *, 100" rows="auto, auto, auto"
+                  class="p-l-20" backgroundColor="#2C3251" (tap)="onItemTap(item.name)">
+                  <Image [src]="'~/images/' + item.tag" row="0" col="0"
+                      rowSpan="3" width="12" stretch="aspectFit"
+                      verticalAlignment="top" horizontalAlignment="left"
+                      android:style="margin-top: 5" ios:style="margin-top: 9"></Image>
+                  <Label [text]="item.name" row="0" col="1" class="h3"></Label>
+                  <Label [text]="item.repeat" row="1" col="1" class="body"
+                      color="#C2C8E6"></Label>
+                  <Label [text]="item.amount" row="0" col="2" class="h2 p-r-20"
+                      color="#89D5E2" horizontalAlignment="right"></Label>
+                  <StackLayout class="hr-light m-y-20" row="2" col="1"
+                      colSpan="2" *ngIf="!item.last"></StackLayout>
+                  <StackLayout class="m-7-20" row="2" col="1" colSpan="2"
+                      *ngIf="item.last"></StackLayout>
+              </GridLayout>
+          </ng-template>
+      </ListView>
+  </StackLayout>
+  <!-- /Transactions -->
+
+  <!-- Footer -->
+  <StackLayout col="0" row="3" orientation="vertical" padding="5 0 10 0"
+      backgroundColor="#282E4B">
+      <GridLayout columns="30, *, 100" rows="auto" class="p-l-20">
+          <Image src="~/images/iconAllCategory.png" row="0" col="0" width="28"
+              stretch="aspectFit" android:style="margin: -10 0 0 -5"
+              ios:style="margin-left: -5" horizontalAlignment="left"></Image>
+          <Label text="All Categories" row="0" col="1" class="h3" color="#89D5E2"></Label>
+          <Label text="$117.99" row="0" col="2" class="h2 p-r-20" color="#89D5E2"
+              horizontalAlignment="right"></Label>
+      </GridLayout>
+  </StackLayout>
+  <!-- /Footer -->
+
+</GridLayout>

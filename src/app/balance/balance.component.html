@@ -1,0 +1,93 @@
+<DockLayout stretchLastChild="true">
+  <!-- Head -->
+  <StackLayout orientation="vertical" dock="top">
+      <!-- Navigaton -->
+      <ios>
+          <GridLayout rows="auto" columns="75,*,75" class="action-bar p-20">
+              <Image src="~/images/iconToday.png" class="action-item p-5"
+                  row="0" col="0" (tap)="goToTodayPage()" stretch="aspectFit"
+                  width="25" horizontalAlignment="left" opacity="0.2"></Image>
+              <Image src="~/images/iconCalendar.png" class="action-item p-5"
+                  row="0" col="1" (tap)="goToCalendarPage()" stretch="aspectFit"
+                  width="24" horizontalAlignment="center" opacity="0.2"></Image>
+              <Image src="~/images/iconBalance.png" class="action-item p-5"
+                  row="0" col="2" stretch="aspectFit"
+                  width="24" horizontalAlignment="right"></Image>
+          </GridLayout>
+      </ios>
+      <android>
+          <GridLayout rows="auto" columns="75,*,75" class="action-bar p-20">
+              <Image src="~/images/iconToday.png" class="action-item p-5"
+                  row="0" col="0" (tap)="goToTodayPage()" stretch="aspectFit"
+                  width="35" horizontalAlignment="left" opacity="0.2"></Image>
+              <Image src="~/images/iconCalendar.png" class="action-item p-5"
+                  row="0" col="1" (tap)="goToCalendarPage()" stretch="aspectFit"
+                  width="35" horizontalAlignment="center" opacity="0.2"></Image>
+              <Image src="~/images/iconBalance.png" class="action-item p-5"
+                  row="0" col="2" stretch="aspectFit"
+                  width="35" horizontalAlignment="right"></Image>
+          </GridLayout>
+      </android>
+      <!-- /Navigation -->
+
+      <GridLayout columns="*" rows="auto, auto" class="m-y-20 m-x-20">
+          <Label text="Balance" row="0" col="0" class="large" color="#C2C8E6"></Label>
+          <Label [text]="month + ' ' + date + ', ' + year" row="1" col="0"
+              class="body small" color="#C2C8E6"></Label>
+      </GridLayout>
+
+      <GridLayout columns="auto, auto" rows="auto, auto" margin="10 20 30 20">
+          <!-- Spending current month -->
+          <Label text="$3,580" row="0" col="0" class="medium p-r-20" color="#89D5E2"></Label>
+          <Label text="Current" row="1" col="0" class="body p-r-20 xsmall text-uppercase"
+              color="#89D5E2"></Label>
+          <!-- Spending last month -->
+          <Label text="$1,220" row="0" col="1" class="medium p-l-30" color="#C2C8E6"></Label>
+          <Label text="Last Month" row="1" col="1" class="p-l-30 body xsmall text-uppercase"
+              color="#C2C8E6"></Label>
+      </GridLayout>
+  </StackLayout>
+  <!-- /Head -->
+
+  <!-- Chart -->
+  <StackLayout orientation="vertical" class="p-t-30" backgroundColor="#282E4B"
+      dock="bottom">
+      <GridLayout rows="auto, *" columns="*" height="1000px">
+          <Label row="0" col="0" text="Goal: $4,000" class="chart-example-tytle-style text-right xsmall text-uppercase p-r-20"
+              textWrap="true" color="#89D5E2"></Label>
+          <RadCartesianChart row="1" col="0" selectionMode="Single"
+              backgroundColor="transparent" color="white" width="100%">
+              <CategoricalAxis lineColor="#30D8D8D8" labelTextColor="#C2C8E6"
+                  labelSize="11" lineThickness="1" labelLayoutMode="inner"
+                  lineHidden="true" labelMargin="10"
+                  tkCartesianHorizontalAxis></CategoricalAxis>
+              <LinearAxis lineColor="#D8D8D8" lineThickness="1" hidden="true"
+                  labelLayoutMode="inner" tkCartesianVerticalAxis></LinearAxis>
+              <SplineAreaSeries seriesName="Area" categoryProperty="Day"
+                  [items]="currentMonth" stackMode="None" valueProperty="Amount"
+                  selectionMode="Series" tkCartesianSeries></SplineAreaSeries>
+              <SplineAreaSeries seriesName="Area" categoryProperty="Day"
+                  [items]="lastMonth" stackMode="None" valueProperty="Amount"
+                  selectionMode="Series" tkCartesianSeries></SplineAreaSeries>
+              <RadCartesianChartGrid horizontalLinesVisible="true"
+                  verticalLinesVisible="false" verticalStripLinesVisible="false"
+                  horizontalStripLinesVisible="false" horizontalStrokeColor="#30D8D8D8"
+                  tkCartesianGrid></RadCartesianChartGrid>
+              <Palette seriesName="Area" tkCartesianPalette>
+                  <PaletteEntry fillColor="#3051599A" strokeColor="#7FCFDC"
+                      strokeWidth="2"></PaletteEntry>
+                  <PaletteEntry fillColor="#109BABFF" strokeColor="#109BABFF"
+                      strokeWidth="2"></PaletteEntry>
+              </Palette>
+              <Palette seriesName="Area" seriesState="Selected"
+                  tkCartesianPalette>
+                  <PaletteEntry fillColor="#6051599A" strokeColor="#7FCFDC"
+                      strokeWidth="2"></PaletteEntry>
+                  <PaletteEntry fillColor="#409BABFF" strokeColor="#609BABFF"
+                      strokeWidth="2"></PaletteEntry>
+              </Palette>
+          </RadCartesianChart>
+      </GridLayout>
+  </StackLayout>
+  <!-- /Chart -->
+</DockLayout>

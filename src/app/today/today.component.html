@@ -1,0 +1,81 @@
+<DockLayout stretchLastChild="true" backgroundColor="#282E4B">
+  <!-- Summary -->
+  <StackLayout orientation="vertical" dock="top">
+      <!-- Navigaton -->
+      <ios>
+          <GridLayout rows="auto" columns="75,*,75" class="action-bar p-20">
+              <Image src="~/images/iconToday.png" class="action-item p-5"
+                  row="0" col="0" stretch="aspectFit"
+                  width="24" horizontalAlignment="left"></Image>
+              <Image src="~/images/iconCalendar.png" class="action-item p-5"
+                  row="0" col="1" (tap)="goToCalendarPage()" stretch="aspectFit"
+                  width="24" horizontalAlignment="center" opacity="0.2"></Image>
+              <Image src="~/images/iconBalance.png" class="action-item p-5"
+                  row="0" col="2" (tap)="goToBalancePage()" stretch="aspectFit"
+                  width="24" horizontalAlignment="right" opacity="0.2"></Image>
+          </GridLayout>
+      </ios>
+      <android>
+          <GridLayout rows="auto" columns="75,*,75" class="action-bar p-20">
+              <Image src="~/images/iconToday.png" class="action-item p-5"
+                  row="0" col="0" stretch="aspectFit"
+                  width="35" horizontalAlignment="left"></Image>
+              <Image src="~/images/iconCalendar.png" class="action-item p-5"
+                  row="0" col="1" (tap)="goToCalendarPage()" stretch="aspectFit"
+                  width="35" horizontalAlignment="center" opacity="0.2"></Image>
+              <Image src="~/images/iconBalance.png" class="action-item p-5"
+                  row="0" col="2" (tap)="goToBalancePage()" stretch="aspectFit"
+                  width="35" horizontalAlignment="right" opacity="0.2"></Image>
+          </GridLayout>
+      </android>
+      <!-- /Navigation -->
+
+      <GridLayout columns="*, *" rows="auto, auto" class="m-y-30 m-x-20">
+          <!-- Date Today -->
+          <Label [text]="day" row="0" col="0" class="large" fontSize="35"
+              color="#C2C8E6"></Label>
+          <Label [text]="month + ' ' + date + ', ' + year" row="1" col="0"
+              class="body small" color="#C2C8E6"></Label>
+          <!-- Spending this month -->
+          <Label text="$580" row="0" col="1" class="large text-right" color="#89D5E2"></Label>
+          <Label text="Spent this month" row="1" col="1" class="body small text-right"
+              color="#89D5E2"></Label>
+      </GridLayout>
+  </StackLayout>
+  <!-- /Summary -->
+
+  <!-- Tip -->
+  <StackLayout orientation="vertical" class="m-tt-30 p-y-30"
+      backgroundColor="#282E4B" dock="bottom">
+      <GridLayout columns="80, *" rows="auto" class="m-x-20">
+          <Image src="~/images/tip-chart-icon.png" row="0" col="0"></Image>
+          <Label text="In the past 30 days you spent $130 on ridesharing. Usually you spend $90."
+              row="0" col="1" class="body m-l-20" textWrap="true" color="#89D5E2"></Label>
+      </GridLayout>
+  </StackLayout>
+  <!-- /Tip -->
+
+  <!-- Transactions -->
+  <StackLayout orientation="vertical" class="m-t-30" backgroundColor="#2C3251">
+
+      <ListView #listView [items]="transactions" backgroundColor="#2C3251"
+          separatorColor="transparent">
+          <ng-template let-item="item">
+              <GridLayout columns="100, *" rows="auto, auto, auto" class="p-l-20"
+                  backgroundColor="#2C3251" (tap)="onRadItemTap(item.name)">
+                  <Label [text]="'-' + item.amount" row="0" col="0" class="h1"
+                      color="#89D5E2"></Label>
+                  <Label [text]="item.date" row="1" col="0" class="body p-l-15"></Label>
+                  <Label [text]="item.name" row="0" col="1" class="h2 p-r-20"></Label>
+                  <Label [text]="item.address" row="1" col="1" class="body p-r-20"
+                      color="#C2C8E6"></Label>
+                  <StackLayout class="hr-light m-y-20" row="2" col="1"
+                      *ngIf="!item.last"></StackLayout>
+                  <StackLayout class="m-y-20" row="2" col="1" *ngIf="item.last"></StackLayout>
+              </GridLayout>
+          </ng-template>
+      </ListView>
+  </StackLayout>
+  <!-- /Transactions -->
+
+</DockLayout>
