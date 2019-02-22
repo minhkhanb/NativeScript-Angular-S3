@@ -21,4 +21,8 @@ export class HomeComponent implements OnInit {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
     }
+
+    tabSelected(arg: number) {
+        console.log('tab selected: ' + arg);
+    }
 }
