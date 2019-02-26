@@ -17,119 +17,15 @@
 <GridLayout class="page page-content">
   <Label class="page-icon fa" text="&#xf091;"></Label>
   <Label class="page-placeholder" text="Toiec content goes here "></Label>
-  <GridLayout row="0" columns="*,*,*,*" rows="*,*,*,*" style="padding: 15;">
-    <GridLayout row="0" col="0" style="padding: 15;">
-      <GridLayout rows="* auto" style="background-color: #0099CC;">
-        <Button row="1" text="Plan 1" class="btn btn-primary btn-active"></Button>
-      </GridLayout>
-    </GridLayout>
-    
-    <GridLayout row="0" col="1" style="padding: 15;">
-      <GridLayout rows="* auto" style="background-color: #0099CC;">
-        <Button row="1" text="Plan 2" class="btn btn-primary btn-active"></Button>
-      </GridLayout>
-    </GridLayout>
+  <ScrollView>
+      <FlexboxLayout flexWrap="wrap" style="padding: 15;">
 
-    <GridLayout row="0" col="2" style="padding: 15;">
-      <GridLayout rows="* auto" style="background-color: #0099CC;">
-        <Button row="1" text="Plan 3" class="btn btn-primary btn-active"></Button>
-      </GridLayout>
-    </GridLayout>
-
-    <GridLayout row="0" col="3" style="padding: 15;">
-      <GridLayout rows="* auto" style="background-color: #0099CC;">
-        <Button row="1" text="Plan 4" class="btn btn-primary btn-active"></Button>
-      </GridLayout>
-    </GridLayout>
-
-    <GridLayout row="1" col="0" style="padding: 15;">
-      <GridLayout rows="* auto" style="background-color: #0099CC;">
-        <Button row="1" text="Plan 5" class="btn btn-primary btn-active"></Button>
-      </GridLayout>
-    </GridLayout>
-
-    <GridLayout row="1" col="1" style="padding: 15;">
-      <GridLayout rows="* auto" style="background-color: #0099CC;">
-        <Button row="1" text="Plan 6" class="btn btn-primary btn-active"></Button>
-      </GridLayout>
-    </GridLayout>
-
-    <GridLayout row="1" col="2" style="padding: 15;">
-      <GridLayout rows="* auto" style="background-color: #0099CC;">
-        <Button row="1" text="Plan 7" class="btn btn-primary btn-active"></Button>
-      </GridLayout>
-    </GridLayout>
-
-    <GridLayout row="1" col="3" style="padding: 15;">
-      <GridLayout rows="* auto" style="background-color: #0099CC;">
-        <Button row="1" text="Plan 8" class="btn btn-primary btn-active"></Button>
-      </GridLayout>
-    </GridLayout>
-
-    <GridLayout row="2" col="0" style="padding: 15;">
-      <GridLayout rows="* auto" style="background-color: #0099CC;">
-        <Button row="1" text="Plan 9" class="btn btn-primary btn-active"></Button>
-      </GridLayout>
-    </GridLayout>
-
-    <GridLayout row="2" col="1" style="padding: 15;">
-      <GridLayout rows="* auto" style="background-color: #0099CC;">
-        <Button row="1" text="Plan 10" class="btn btn-primary btn-active"></Button>
-      </GridLayout>
-    </GridLayout>
-
-    <GridLayout row="2" col="2" style="padding: 15;">
-      <GridLayout rows="* auto" style="background-color: #0099CC;">
-        <Button row="1" text="Plan 11" class="btn btn-primary btn-active"></Button>
-      </GridLayout>
-    </GridLayout>
-
-    <GridLayout row="2" col="3" style="padding: 15;">
-      <GridLayout rows="* auto" style="background-color: #0099CC;">
-        <Button row="1" text="Plan 12" class="btn btn-primary btn-active"></Button>
-      </GridLayout>
-    </GridLayout>
-
-    <GridLayout row="3" col="0" style="padding: 15;">
-      <GridLayout rows="* auto" style="background-color: #0099CC;">
-        <Button row="1" text="Plan 13" class="btn btn-primary btn-active"></Button>
-      </GridLayout>
-    </GridLayout>
-
-    <GridLayout row="3" col="1" style="padding: 15;">
-      <GridLayout rows="* auto" style="background-color: #0099CC;">
-        <Button row="1" text="Plan 14" class="btn btn-primary btn-active"></Button>
-      </GridLayout>
-    </GridLayout>
-
-    <GridLayout row="3" col="2" style="padding: 15;">
-      <GridLayout rows="* auto" style="background-color: #0099CC;">
-        <Button row="1" text="Plan 15" class="btn btn-primary btn-active"></Button>
-      </GridLayout>
-    </GridLayout>
-
-    <GridLayout row="3" col="3" style="padding: 15;">
-      <GridLayout rows="* auto" style="background-color: #0099CC;">
-        <Button row="1" text="Plan 16" class="btn btn-primary btn-active"></Button>
-      </GridLayout>
-    </GridLayout>
-
-    <GridLayout row="4" col="0" style="padding: 15;">
-        <GridLayout rows="* auto" style="background-color: #0099CC;">
-          <Button row="1" text="Plan 16" class="btn btn-primary btn-active"></Button>
-        </GridLayout>
-      </GridLayout>
-
-      <GridLayout row="4" col="1" style="padding: 15;">
+        <GridLayout *ngFor="let item of totalItem" [width]="itemWidth" [height]="itemHeight" style="padding: 15;">
           <GridLayout rows="* auto" style="background-color: #0099CC;">
-            <Button row="1" text="Plan 16" class="btn btn-primary btn-active"></Button>
+            <Button row="1" text="Plan 1" class="btn btn-primary btn-active"></Button>
           </GridLayout>
         </GridLayout>
 
-        <GridLayout row="4" col="2" style="padding: 15;">
-            <GridLayout rows="* auto" style="background-color: #0099CC;">
-              <Button row="1" text="Plan 16" class="btn btn-primary btn-active"></Button>
-            </GridLayout>
-          </GridLayout>
-  </GridLayout>
+    </FlexboxLayout>
+  </ScrollView>
 </GridLayout>
