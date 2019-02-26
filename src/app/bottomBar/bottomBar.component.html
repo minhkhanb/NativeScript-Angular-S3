@@ -2,19 +2,24 @@
     <GridLayout columns="*, *, *, *, *" height="60" backgroundColor="#0D0D12">
         <GridLayout #tabHighlight col="0" backgroundColor="#F8A200"></GridLayout>
         <GridLayout col="0" (tap)="selectTab(0)">
-            <Image #image1 src="~/images/ic_local_cafe.png" height="23" width="23"></Image>
+            <!-- <Image #image1 src="~/images/ic_local_cafe.png" height="23" width="23"></Image> -->
+            <Label #image1 text="&#xf015;" class="fa" verticalAlignment="center" horizontalAlignment="center" style="color: #fff; font-size: 30;"></Label>
         </GridLayout>
         <GridLayout col="1" (tap)="selectTab(1)">
-            <Image #image2 src="~/images/ic_fastfood.png" height="25" width="25"></Image>
+            <!-- <Image #image2 src="~/images/ic_fastfood.png" height="25" width="25"></Image> -->
+            <Label #image2 text="&#xf1d8;" class="fa" verticalAlignment="center" horizontalAlignment="center" style="color: #fff; font-size: 30;"></Label>
         </GridLayout>
         <GridLayout col="2" (tap)="selectTab(2)">
-            <Image #image3 src="~/images/ic_local_pizza.png" height="25" width="25"></Image>
+            <!-- <Image #image3 src="~/images/ic_local_pizza.png" height="25" width="25"></Image> -->
+            <Label #image3 text="&#xf030;" class="fa" verticalAlignment="center" horizontalAlignment="center" style="color: #fff; font-size: 30;"></Label>
         </GridLayout>
         <GridLayout col="3" (tap)="selectTab(3)">
-            <Image #image4 src="~/images/ic_local_bar.png" height="25" width="25"></Image>
+            <!-- <Image #image4 src="~/images/ic_local_bar.png" height="25" width="25"></Image> -->
+            <Label #image4 text="&#xf03d;" class="fa" verticalAlignment="center" horizontalAlignment="center" style="color: #fff; font-size: 30;"></Label>
         </GridLayout>
         <GridLayout col="4" (tap)="selectTab(4)">
-            <Image #image5 src="~/images/ic_tag_faces.png" height="25" width="25"></Image>
+            <!-- <Image #image5 src="~/images/ic_tag_faces.png" height="25" width="25"></Image> -->
+            <Label #image5 text="&#xf007;" class="fa" verticalAlignment="center" horizontalAlignment="center" style="color: #fff; font-size: 30;"></Label>
         </GridLayout>
     </GridLayout>
 </GridLayout>
