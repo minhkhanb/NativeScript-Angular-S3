@@ -18,6 +18,11 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                     <Label col="1" text="Home" class="p-r-10"></Label>
                 </GridLayout>
 
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/toiec')" (tap)="onNavItemTap('/toiec')">
+                    <Label col="0" text="&#xf091;" class="fa"></Label>
+                    <Label col="1" text="Toiec" class="p-r-10"></Label>
+                </GridLayout>
+
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/ui')" (tap)="onNavItemTap('/ui')">
                     <Label col="0" text="&#xf043;" class="fa"></Label>
                     <Label col="1" text="UI" class="p-r-10"></Label>
@@ -46,7 +51,7 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                 <StackLayout class="hr-light"></StackLayout>
 
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/settings')" (tap)="onNavItemTap('/settings')">
-                    <Label col="0" text="&#xf013;" class="fa"></Label>
+                    <Label col="0" text="&#xf005;" class="fa"></Label>
                     <Label col="1" text="Settings" class="p-r-10"></Label>
                 </GridLayout>
             </StackLayout>
