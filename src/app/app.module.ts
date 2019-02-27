@@ -3,6 +3,7 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
 
 import { NativeScriptUICalendarModule } from 'nativescript-ui-calendar/angular';
+import { YoutubePlayerModule } from 'nativescript-youtubeplayer/angular';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -20,6 +21,7 @@ import { TodayComponent } from './today/today.component';
         NativeScriptModule,
         NativeScriptUISideDrawerModule,
         NativeScriptUICalendarModule,
+        YoutubePlayerModule,
     ],
     declarations: [
         AppComponent,

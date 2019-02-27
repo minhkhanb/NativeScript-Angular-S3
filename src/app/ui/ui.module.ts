@@ -4,10 +4,11 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { UIRoutingModule } from "./ui-routing.module";
 import { UIComponent } from "./ui.component";
 
+
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        UIRoutingModule
+        UIRoutingModule,
     ],
     declarations: [
         UIComponent
