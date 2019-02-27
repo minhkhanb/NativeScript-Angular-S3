@@ -18,14 +18,14 @@
   <Label class="page-icon fa" text="&#xf091;"></Label>
   <Label class="page-placeholder" text="Toiec content goes here "></Label>
   <ScrollView>
-      <FlexboxLayout flexWrap="wrap" style="padding: 15;">
+      <GridLayout [rows]="itemRows" columns="*, *, *">
 
-        <GridLayout *ngFor="let item of totalItem" [width]="itemWidth" [height]="itemHeight" style="padding: 15;">
-          <GridLayout rows="* auto" style="background-color: #0099CC;">
-            <Button row="1" text="Plan 1" class="btn btn-primary btn-active"></Button>
+        <GridLayout [row]="item.row" [col]="item.col" *ngFor="let item of totalItem" [height]="itemHeight" style="flex:1;">
+          <GridLayout rows="* auto" [backgroundColor]="item.bgColor">
+            <Button row="1" [text]="item.title" class="btn btn-primary btn-active"></Button>
           </GridLayout>
         </GridLayout>
 
-    </FlexboxLayout>
+    </GridLayout>
   </ScrollView>
 </GridLayout>
