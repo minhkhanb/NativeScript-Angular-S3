@@ -18,19 +18,26 @@
 <GridLayout class="page page-content">
     <GridLayout rows="*, auto">
         <StackLayout row="0">
-            <Label horizontalAlignment="center" letterSpacing="0.2" paddingTop="35">
-                <FormattedString>
-                    <Span color="#fff" fontSize="18" fontWeight="normal" text="BOTTOM MENU"></Span>
-                    <Span color="#fff" fontSize="18" fontWeight="bold" text=" DEMO"></Span>
-                </FormattedString>
-            </Label>
-            <YoutubePlayer id="ytplayer" options="{{options}}" apiKey="{{apiKey}}"
-        src="{{src}}" backgroundColor="gray"></YoutubePlayer>
-        <Button row="1" text="Toggle FullScreen" (tap)="toggleFullScreen($event)"></Button>
-        <Button row="2" text="Change Source" (tap)="changeSource($event)"></Button>
-        <Button row="3" text="Load Dancehall" (tap)="getDanceHall($event)"></Button>
-        <Button row="4" text="Load HipHop" (tap)="getHipHop($event)"></Button>
-        <Button row="5" text="Load Soca" (tap)="getSoca($event)"></Button>
+            <ScrollView>
+                <StackLayout>
+                    <!-- <Label horizontalAlignment="center" letterSpacing="0.2" paddingTop="35">
+                        <FormattedString>
+                            <Span color="#333" fontSize="18" fontWeight="normal" text="BOTTOM MENU"></Span>
+                            <Span color="#333" fontSize="18" fontWeight="bold" text=" DEMO"></Span>
+                        </FormattedString>
+                    </Label> -->
+
+                    <YoutubePlayer id="ytplayer" options="{{options}}" apiKey="{{apiKey}}"
+            src="{{src}}" backgroundColor="gray"></YoutubePlayer>
+    
+    
+                <Button row="1" text="Toggle FullScreen" (tap)="toggleFullScreen($event)"></Button>
+                <Button row="2" text="Change Source" (tap)="changeSource($event)"></Button>
+                <Button row="3" text="Load Dancehall" (tap)="getDanceHall($event)"></Button>
+                <Button row="4" text="Load HipHop" (tap)="getHipHop($event)"></Button>
+                <Button row="5" text="Load Soca" (tap)="getSoca($event)"></Button>
+                </StackLayout>
+            </ScrollView>
         </StackLayout>
         <BottomBar row="1" (tabSelected)="tabSelected($event)"></BottomBar>
     </GridLayout>
