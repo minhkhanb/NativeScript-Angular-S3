@@ -1,0 +1,7 @@
+export const ENUM_BOTTOM_MENU = {
+  HOME: 0,
+  GALLERY: 1,
+  CAMERA: 2,
+  VIDEO_RECORD: 3,
+  PROFILE: 4
+};

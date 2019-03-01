@@ -8,9 +8,17 @@ import {
   EventEmitter,
 } from '@angular/core';
 
+import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
+import * as app from 'tns-core-modules/application';
+import { RouterExtensions } from 'nativescript-angular/router';
+
 import { AnimationCurve } from 'ui/enums';
 import { screen } from 'platform';
 import { setTimeout } from 'timer';
+
+import {
+  ENUM_BOTTOM_MENU
+} from '../utils/common/enum';
 
 @Component({
   selector: 'BottomBar',
@@ -20,19 +28,21 @@ import { setTimeout } from 'timer';
 })
 
 export class BottomBarComponent implements OnInit {
+
+  tabList = ENUM_BOTTOM_MENU;
   
   @ViewChild('tabHighlight') tabHighlight: ElementRef;
   selectedTab: number = 0;
 
   @ViewChild('image1') image1: ElementRef;
   @ViewChild('image2') image2: ElementRef;
-  @ViewChild('image3') image3: ElementRef;
+  @ViewChild('camera') cameraElement: ElementRef;
   @ViewChild('image4') image4: ElementRef;
   @ViewChild('image5') image5: ElementRef;
 
   @Output() tabSelected = new EventEmitter<number>();
 
-  constructor() {
+  constructor(private routerExtensions: RouterExtensions) {
 
   }
 
@@ -62,6 +72,10 @@ export class BottomBarComponent implements OnInit {
       this.animateCurrentImage(this.getImage(index));
       this.animatePreviousImage(this.getImage(previousTab));
       this.tabSelected.emit(this.selectedTab);
+      if(index === this.tabList.CAMERA) {
+        console.log('redirect to camera');
+        this.onNavItemTap('/camera');
+      }
     }
   }
 
@@ -77,7 +91,7 @@ export class BottomBarComponent implements OnInit {
         break;
 
       case 2:
-        currentImage = this.image3;
+        currentImage = this.cameraElement;
         break;
 
       case 3:
@@ -114,5 +128,16 @@ export class BottomBarComponent implements OnInit {
       curve: AnimationCurve.cubicBezier(1, .02, .45, .93),
       duration: 300
     });
+  }
+
+  onNavItemTap(navItemRoute: string): void {
+    this.routerExtensions.navigate([navItemRoute], {
+        transition: {
+            name: "fade"
+        }
+    });
+
+    const sideDrawer = <RadSideDrawer>app.getRootView();
+    sideDrawer.closeDrawer();
   }
 }

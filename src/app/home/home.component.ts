@@ -51,22 +51,7 @@ export class HomeComponent implements OnInit {
         }
         if (player) {
             player.toggleFullScreen();
-        }
-        console.log('set video fullscreen: ', player);
-        // this.ytVideo.toggleFullscreen();
-        
-    }
-
-    changeSource() {
-        this.src = 'dQw4w9WgXcQ';
-    }
-    getDanceHall() {
-        this.src = 'wH_0_pijbZY';
-    }
-    getHipHop() {
-        this.src = 'lwk5OUII9Vc';
-    }
-    getSoca() {
-        this.src = 'vEG4qNW33mA';
+            console.log('set video fullscreen : ', player);
+        }        
     }
 }

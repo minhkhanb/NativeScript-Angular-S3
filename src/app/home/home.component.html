@@ -27,15 +27,11 @@
                         </FormattedString>
                     </Label> -->
 
-                    <YoutubePlayer id="ytplayer" options="{{options}}" apiKey="{{apiKey}}"
+                    <YoutubePlayer id="ytplayer" options="{{options}}" width="480" height="270" apiKey="{{apiKey}}"
             src="{{src}}" backgroundColor="gray"></YoutubePlayer>
     
     
-                <Button row="1" text="Toggle FullScreen" (tap)="toggleFullScreen($event)"></Button>
-                <Button row="2" text="Change Source" (tap)="changeSource($event)"></Button>
-                <Button row="3" text="Load Dancehall" (tap)="getDanceHall($event)"></Button>
-                <Button row="4" text="Load HipHop" (tap)="getHipHop($event)"></Button>
-                <Button row="5" text="Load Soca" (tap)="getSoca($event)"></Button>
+                <Button row="1" width="320" text="Toggle FullScreen" (tap)="toggleFullScreen($event)" class="btn btn-primary"></Button>
                 </StackLayout>
             </ScrollView>
         </StackLayout>

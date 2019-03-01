@@ -18,6 +18,7 @@ const routes: Routes = [
     { path: 'today', component: TodayComponent },
     { path: 'ui', loadChildren: '~/app/ui/ui.module#UIModule' },
     { path: 'toiec', loadChildren: '~/app/toiec/toiec.module#ToiecModule' },
+    { path: 'camera', loadChildren: '~/app/camera/camera.module#CameraModule' },
 ];
 
 @NgModule({
