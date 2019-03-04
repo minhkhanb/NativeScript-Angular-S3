@@ -39,6 +39,9 @@ export class LocationComponent {
       if(isLocationEnable) {
         message = 'Location services are available';
       }
+      else {
+        enableLocationRequest();
+      }
       console.log('Location status: ', message);
     }, function(err) {
       console.log('Location error received: ', err.message || err);
