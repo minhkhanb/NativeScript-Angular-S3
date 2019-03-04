@@ -7,7 +7,7 @@ import { BalanceComponent } from './balance/balance.component';
 import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
-    { path: "", redirectTo: "/home", pathMatch: "full" },
+    { path: "", redirectTo: "/location", pathMatch: "full" },
     { path: "home", loadChildren: "~/app/home/home.module#HomeModule" },
     { path: "browse", loadChildren: "~/app/browse/browse.module#BrowseModule" },
     { path: "search", loadChildren: "~/app/search/search.module#SearchModule" },
@@ -19,6 +19,7 @@ const routes: Routes = [
     { path: 'ui', loadChildren: '~/app/ui/ui.module#UIModule' },
     { path: 'toiec', loadChildren: '~/app/toiec/toiec.module#ToiecModule' },
     { path: 'camera', loadChildren: '~/app/camera/camera.module#CameraModule' },
+    { path: 'location', loadChildren: '~/app/location/location.module#LocationModule' },
 ];
 
 @NgModule({

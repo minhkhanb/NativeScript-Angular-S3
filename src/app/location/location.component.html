@@ -1,0 +1,45 @@
+<ActionBar class="action-bar">
+  <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+  <Label class="action-bar-title" text="Location"></Label>
+</ActionBar>
+
+<GridLayout class="page page-content">
+    <Label text="&#xf124;" class="page-icon fa"></Label>
+    <Label class="page-placeholder" text="<!-- Location content goes here -->"></Label>
+    <GridLayout rows="*" columns="*">
+        <StackLayout>
+            <ScrollView>
+                <StackLayout>
+                    <Button class="btn btn-primary" text="Check if location services are available" (tap)="isLocationEnable()"></Button>
+                    <GridLayout rows="auto auto auto auto auto auto auto auto auto" class="m-y-5 form" columns="* *">
+                        <Label class="p-15" row="0"  col="0" rowSpan="2" text="Start Location" textWrap="true"></Label>
+                        <Label class="p-15" row="1"  col="0" text="Longitude: " textWrap="true"></Label>
+                        <StackLayout row="1" col="1" class="input-field">
+                            <TextField class="input input-border" hint="longitude" [(ngModel)]="startpointLongitude"></TextField>
+                        </StackLayout>
+                        <Label class="p-15" row="2" col="0" text="Latitude: " textWrap="true"></Label>
+                        <StackLayout  row="2" col="1" class="input-field">
+                            <TextField class="input input-border"hint="latitude" [(ngModel)]="startpointLatitude"></TextField>
+                        </StackLayout>
+                        <Button class="btn btn-outline btn-active" row="3" col="0" colSpan="2" text="Get current location" (tap)="getLocationOnce()"></Button>
+
+                        <Label class="p-15" row="4" col="0" colSpan="2" text="End location" textWrap="true"></Label>
+                        <Label class="p-15" row="5" col="0" text="Longitude" textWrap="true"></Label>
+
+                        <StackLayout row="5" col="1" class="input-field">
+                            <TextField class="input input-border" hint="longitude" [text]="endpointLongitude"></TextField>
+                        </StackLayout>  
+
+                        <Label class="p-15" row="6" col="0" text="Latitude" textWrap="true"></Label>
+                        <StackLayout row="6" col="1" class="input-field">
+                            <TextField class="input input-field" hint="latitude" [text]="endpointLatitude"></TextField>
+                        </StackLayout>  
+                        
+                        <Button class="btn btn-outline btn-active" row="7" col="0" colSpan="2" text="Get distance between two locations" (tap)="getDistance()"></Button>
+                        <Label class="input input-border p-15 text-center" row="8" col="0" colSpan="2" [text]="'Distance: '+distanceResult+' km'" textWrap="true"></Label>
+                    </GridLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </GridLayout>
+</GridLayout>

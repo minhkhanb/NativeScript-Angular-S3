@@ -35,7 +35,7 @@ export class BottomBarComponent implements OnInit {
   selectedTab: number = 0;
 
   @ViewChild('image1') image1: ElementRef;
-  @ViewChild('image2') image2: ElementRef;
+  @ViewChild('location') image2: ElementRef;
   @ViewChild('camera') cameraElement: ElementRef;
   @ViewChild('image4') image4: ElementRef;
   @ViewChild('image5') image5: ElementRef;
@@ -72,9 +72,22 @@ export class BottomBarComponent implements OnInit {
       this.animateCurrentImage(this.getImage(index));
       this.animatePreviousImage(this.getImage(previousTab));
       this.tabSelected.emit(this.selectedTab);
-      if(index === this.tabList.CAMERA) {
-        console.log('redirect to camera');
-        this.onNavItemTap('/camera');
+      
+      const enumTabSelected = this.tabList;
+      switch(index) {
+        
+        case enumTabSelected.LOCATION:
+          console.log('redirect to location');
+          this.onNavItemTap('/location');
+          break;
+
+        case enumTabSelected.CAMERA:
+          console.log('redirect to camera');
+          this.onNavItemTap('/camera');
+          break;
+
+        default:
+          break;
       }
     }
   }
