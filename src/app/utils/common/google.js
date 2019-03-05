@@ -1,0 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.API_KEY = 'AIzaSyBAEehe8qH1uRuq4a3GFPrSuxld3tEBQ6Y';
+exports.getGeoCodeRequestUrl = function (latitude, longtitude) { return "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longtitude + "&key=" + exports.API_KEY; };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZ29vZ2xlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiZ29vZ2xlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQWEsUUFBQSxPQUFPLEdBQUcseUNBQXlDLENBQUM7QUFFcEQsUUFBQSxvQkFBb0IsR0FBRyxVQUFDLFFBQVEsRUFBRSxVQUFVLElBQUssT0FBQSw4REFBNEQsUUFBUSxTQUFJLFVBQVUsYUFBUSxlQUFTLEVBQW5HLENBQW1HLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY29uc3QgQVBJX0tFWSA9ICdBSXphU3lCQUVlaGU4cUgxdVJ1cTRhM0dGUHJTdXhsZDN0RUJRNlknO1xuXG5leHBvcnQgY29uc3QgZ2V0R2VvQ29kZVJlcXVlc3RVcmwgPSAobGF0aXR1ZGUsIGxvbmd0aXR1ZGUpID0+IGBodHRwczovL21hcHMuZ29vZ2xlYXBpcy5jb20vbWFwcy9hcGkvZ2VvY29kZS9qc29uP2xhdGxuZz0ke2xhdGl0dWRlfSwke2xvbmd0aXR1ZGV9JmtleT0ke0FQSV9LRVl9YDtcbiJdfQ==

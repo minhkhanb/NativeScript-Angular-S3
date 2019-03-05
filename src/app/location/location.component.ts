@@ -1,25 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
 import * as app from 'tns-core-modules/application';
+
+import { getGeoCodeRequestUrl } from '../utils/common/google';
 
 import {
   Location,
   getCurrentLocation,
   isEnabled,
   distance,
-  enableLocationRequest
+  enableLocationRequest,
 } from 'nativescript-geolocation';
 import { Accuracy } from 'tns-core-modules/ui/enums';
-import { start } from 'tns-core-modules/application/application';
+
+import { GeoCode } from '../utils/common/geocode';
+
+import * as connectivity from 'tns-core-modules/connectivity';
 
 @Component({
   selector: 'LocationComponent',
   moduleId: module.id,
-  templateUrl: './location.component.html'
+  templateUrl: './location.component.html',
+  styleUrls: ['./location.component.scss']
 })
 
-export class LocationComponent {
+export class LocationComponent implements OnInit{
+
+  public connectionType: string;
 
   public distanceResult: string = '0';
   public distance: number = 0;
@@ -29,7 +37,11 @@ export class LocationComponent {
   public endpointLongitude: number = 106.6521535;
   public endpointLatitude: number = 10.800579;
 
-  constructor() {
+  public geoData: GeoCode;
+  public address: string = '';
+
+  constructor(private zone: NgZone) {
+    this.connectionType = 'Unknow';
     enableLocationRequest();
   }
 
@@ -63,6 +75,20 @@ export class LocationComponent {
     this.distanceResult = (this.distance * 0.001).toFixed(3);
   }
 
+  public connectionToString(connectionType: number): string {
+    switch(connectionType) {
+      case connectivity.connectionType.none: 
+        return 'No connection';
+
+      case connectivity.connectionType.ethernet:
+      case connectivity.connectionType.wifi:
+        return 'Connected to internet';
+
+      default:
+        return 'Unknow';
+    }
+  }
+
   public getLocationOnce() {
     getCurrentLocation({
       desiredAccuracy: Accuracy.high,
@@ -72,15 +98,36 @@ export class LocationComponent {
         console.log('Location received: ', location);
         this.startpointLatitude = location.latitude;
         this.startpointLongitude = location.longitude;
+
+        fetch(getGeoCodeRequestUrl(location.latitude, location.longitude))
+          .then(res => res.json())
+          .then(response => {
+          this.geoData = response.results[0];
+          console.log('formatted_address: ', this.geoData.formatted_address);
+          this.address = this.geoData.formatted_address;
+        })
       }
     ).catch(err => {
       console.log('Location error received: ', err);
     })
-
   }
 
   onDrawerButtonTap() {
     const sideDrawer = <RadSideDrawer>app.getRootView();
     sideDrawer.showDrawer();
+  }
+
+  ngOnInit() {
+    this.connectionType = this.connectionToString(connectivity.getConnectionType());
+    connectivity.startMonitoring(connectionType => {
+      this.zone.run(() => {
+        this.connectionType = this.connectionToString(connectionType);
+      });
+      console.log('init: newConnectionType => ', connectionType);
+    });
+  }
+
+  ngOnDestroy() {
+    connectivity.stopMonitoring();
   }
 }

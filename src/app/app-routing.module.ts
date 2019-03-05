@@ -7,7 +7,7 @@ import { BalanceComponent } from './balance/balance.component';
 import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
-    { path: "", redirectTo: "/location", pathMatch: "full" },
+    { path: "", redirectTo: "/home", pathMatch: "full" },
     { path: "home", loadChildren: "~/app/home/home.module#HomeModule" },
     { path: "browse", loadChildren: "~/app/browse/browse.module#BrowseModule" },
     { path: "search", loadChildren: "~/app/search/search.module#SearchModule" },
