@@ -7,7 +7,7 @@
     <!-- <Label text="&#xf124;" class="page-icon fa"></Label>
     <Label class="page-placeholder" text=" Location content goes here "></Label> -->
     <Label [text]="connectionType"></Label>
-    <GridLayout rows="*" columns="*">
+    <GridLayout *ngIf="connectionType !== 'No connection'" rows="*" columns="*">
         <StackLayout>
             <ScrollView height="100%">
                 <StackLayout>
